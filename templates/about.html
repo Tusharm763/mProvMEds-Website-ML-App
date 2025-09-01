@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modern-styles.css') }}">
+    <title>About Us - mProvMeds</title>
+    <script src="{{ url_for('static', filename='this-script.js') }}"></script>
+</head>
+
+<body><div class="message-mobile" id="mobileMessage" >
+        Regret!!
+        <br>
+        <br>
+
+        Please use our app for mobile phone:
+        <br>
+        <br>
+        Play-Store: URL-not-found
+        <br>
+        <br>
+        Thanks and Regards.
+        {{appname}} Team.
+    </div>
+    <nav class="navbar" id="nb">
+        <div class="nav-left">
+            <a href="{{ url_for('index') }}" class="app-name"
+                style="display: flex; justify-content: center; align-items: center;">
+                <img style="border-radius: 50%;margin-right: 8px;"
+                    src="{{ url_for('static', filename='mProvMEds-logo-Icon-circular.png') }}"
+                    alt="HOME | mProvMEds" height="40" width="40">
+                {{ appname }} </a>
+            <div class="divider-nav" style="border-left: 3px solid #2563eb;"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index_form') }}" class="nav-link">Create Prediction</a></li>
+                <li><a href="{{ url_for('my_predictions') }}" class="nav-link">My Predictions</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+
+        {% if username %}
+        <div class="user-dropdown">
+            <button class="user-button" onclick="toggleDropdown()">
+                <span id="userName">{{ username }}</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-item">Signed in as <strong>{{ username }}</strong></div>
+                <div class="dropdown-item" id="userEmail">Email - id: {{ email }}</div>
+                <div class="dropdown-item">
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </nav>
+    <div class="container main-content fade-in"  id="cmc">
+        <div class="predictions-container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="heading-title"
+                    style="display: grid;grid-template-columns: auto auto; justify-content:center; text-align:center;">
+                    <a href="{{ url_for('static', filename='mProvMEds-logo-Icon-circular.png') }}"
+                        target="_blank">
+                        <img style="border-radius: 50%;margin-right: 8px;"
+                            src="{{ url_for('static', filename='mProvMEds-logo-Icon-circular.png') }}"
+                            alt="mProvMEds Logo" height="40" width="40">
+                    </a>
+                    <h2> About our Website</h2>
+                </div>
+                <p style="color: #f1f1f1;">Track your health predictions and symptoms over time</p>
+            </div>
+            <div class="prediction-card">
+                <div class="prediction-header" style="border-bottom: 5px solid var(--border);">
+                    <h3 style="color: var(--primary-color); margin: 0;text-align: center;">
+                        We are a team of dedicated individuals working to provide valuable predictions and insights into
+                        various diseases based on symptoms input. Our goal is to improve healthcare outcomes and empower
+                        individuals to make informed decisions about their health.
+                    </h3>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <h4
+                        style="color: var(--text-primary); margin-bottom: 0.0rem; font-size: 0.9rem;text-align: center;">
+                        Feel free to explore our website and use our prediction tool to gain insights into potential
+                        diseases based on symptoms.
+                    </h4>
+                    <br>
+                    <h4 style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 1rem;text-align: center;">
+                        Support us by Social Media links:
+                    </h4>
+                </div>
+                <div class="social-links"
+                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+margin-top: 2rem;margin-bottom: 2rem;margin-right: 5rem;margin-left: 5rem;padding:1rem;align-items: center;justify-content: center;border-radius:15px;">
+                    <a href="#" title="Twitter">
+                        <p
+                            style="display: inline-flex;align-items: center;justify-content: center;margin:0.6rem;letter-spacing:2.5px;">
+                            <img style="margin-right:4px;" src="https://www.svgrepo.com/show/475689/twitter-color.svg"
+                                height="22.5" width="22.5">
+                            Twitter
+                        </p>
+                    </a>
+                    <a href="#" title="LinkedIn" style="margin-left:3.5rem;margin-right:3.5rem;">
+                        <p
+                            style="display: inline-flex;align-items: center;justify-content: center;margin:0.6rem;letter-spacing:2.5px;">
+                            <img style="margin-right:4px;" src="https://www.svgrepo.com/show/157006/linkedin.svg"
+                                height="22.5" width="22.5">
+                            LinkedIn
+                        </p>
+                    </a>
+                    <a href="#" title="Github">
+                        <p
+                            style="display: inline-flex;align-items: center;justify-content: center;margin:0.6rem;letter-spacing:2.5px;">
+                            <img style="margin-right:4px;" src="https://www.svgrepo.com/show/512317/github-142.svg"
+                                height="22.5" width="22.5">
+                            Github
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="predictions-container">
+
+            <div class="prediction-card">
+                <div style="text-align: center; margin-top:0.5rem; margin-bottom: 3rem;">
+                    <h2 style="color: var(--primary-dark); margin-bottom: 0.5rem;">🛠️ Technology Stack</h2>
+                    <p style="color: var(--text-secondary);">Built with modern technologies for reliable healthcare
+                        predictions</p>
+                </div>
+
+                <div class="tech-stack" style="
+    background: linear-gradient(150deg, #667eea 0%, #764ba2 100.0%);">
+                    <h3 style="margin: 0 0 1rem 0;">Our Flask-Python web server leverages machine learning algorithms to
+                        provide accurate disease predictions based on symptom analysis.</h3>
+                    <p style="margin-bottom: 1rem; opacity: 0.9;">ML models trained on medical datasets ensure reliable
+                        healthcare insights for better decision-making.</p>
+
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                                alt="Scikit-learn">
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div style="height:60px;border-left: 2px solid white;">
+
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+                                alt="Flask">
+                            <span>Flask</span>
+                        </div>
+                        <div style="height:60px;border-left: 2px solid white;">
+                        </div>
+
+                        <div class="tech-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="HTML5">
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="CSS3">
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JavaScript">
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="predictions-container" style="margin-top:2rem;">
+            <div class="prediction-card">
+                <div style="text-align: center;  margin-top:0.5rem; margin-bottom: 3rem;">
+                    <h2 style="color: var(--primary-dark); margin-bottom: 0.5rem;">👥 Meet Our Development Team</h2>
+                    <p style="color: var(--text-secondary);">Passionate developers dedicated to improving healthcare
+                        through technology</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="developer-card">
+                        <div class="developer-avatar">👨‍💻</div>
+                        <div class="developer-name">Tushar Mistry</div>
+                        <div class="developer-role">
+                            Team Lead<br>
+                            Backend Developer | ML Engineer
+                        </div>
+                        <div class="developer-skills">
+                            Full-stack development expertise<br>
+                            Machine learning model optimization
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-avatar">👩‍💻</div>
+                        <div class="developer-name">Akshat Yadav</div>
+                        <div class="developer-role">
+                            Team Lead<br>
+                            Web Developer | UI&U Designer
+                        </div>
+                        <div class="developer-skills">
+                            React & modern web technologies<br>
+                            User experience design specialist
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-avatar">👨‍💼</div>
+                        <div class="developer-name">Swapnil Singh</div>
+                        <div class="developer-role">
+                            Team Lead<br>
+                            HTTP Architecture | ML Engineer
+                        </div>
+                        <div class="developer-skills">
+                            Healthcare domain expertise<br>
+                            Medical data analysis specialist
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-avatar">👩‍🔬</div>
+                        <div class="developer-name">Rudhinandan Patel</div>
+                        <div class="developer-role">Clinical Research | ML Developer</div>
+                        <div class="developer-skills">
+                            Python Flask architecture<br>
+                            Cloud deployment & scaling
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-avatar">👩‍⚕️</div>
+                        <div class="developer-name">Muskan Yadav</div>
+                        <div class="developer-role">Clinical Research | Ml Developer</div>
+                        <div class="developer-skills">
+                            Deep learning implementations<br>
+                            Predictive model accuracy optimization
+                        </div>
+                    </div>
+
+                    <div class="developer-card">
+                        <div class="developer-avatar">👨‍🔧</div>
+                        <div class="developer-name">Arhan Mozzam Syed</div>
+                        <div class="developer-role">Configs, Maintenance and Testing</div>
+                        <div class="developer-skills">
+                            Healthcare product development<br>
+                            User requirement analysis
+
+                        </div>
+                    </div>
+
+                    <div class="developer-card">
+                        <div class="developer-avatar">👩‍💼</div>
+                        <div class="developer-name">Hrishikesh Mishra</div>
+                        <div class="developer-role">Research - Clinical Validation & Testing</div>
+                        <div class="developer-skills">
+                            Medical accuracy verification<br>
+                            Healthcare compliance standards
+                        </div>
+                    </div>
+
+                    <div class="developer-card">
+                        <div class="developer-avatar">👨‍🔧</div>
+                        <div class="developer-name">Sashank Mehra</div>
+                        <div class="developer-role">UI&UX - Quality Assurance & Testing</div>
+                        <div class="developer-skills">
+                            Automated testing frameworks<br>
+                            Performance optimization specialist
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer class="site-footer"  id="sf">
+        <div class="footer-content"><br><br>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>🏥 About mProvMeds</h3>
+                    <p style="text-align:justify;">We are a team of dedicated individuals working to provide valuable
+                        predictions and insights into various diseases based on symptoms input. Our goal is to improve
+                        healthcare outcomes and empower individuals to make informed decisions about their health.</p>
+                     <a href="#" title="LinkedIn"
+                        style="display: inline-flex;align-items: center;justify-content: center;margin-top:0.6rem;letter-spacing:2.5px;">
+                        <img style="margin-right:4px;" src="https://www.svgrepo.com/show/157006/linkedin.svg"
+                            height="22.5" width="22.5">
+                        LinkedIn
+
+                    </a>
+                    <a style="color:transparent;height:rem;">_</a>
+                    <a style="border-left: 3px solid #2563eb;color:transparent;height:2rem;font-size:2rem;">_</a>
+                    <a href="#" title="Github"
+                        style="display: inline-flex;align-items: center;justify-content: center;margin-top:0.6rem;letter-spacing:2.5px;">
+                        <img style="margin-right:4px;" src="https://www.svgrepo.com/show/512317/github-142.svg"
+                            height="22.5" width="22.5">
+                        Github
+
+                    </a>
+                </div>
+                <div class="footer-section" style="padding-left:45px;">
+                    <h3>🔗 Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">🏠 Home</a></li>
+                        <li><a href="{{ url_for('index_form') }}">➕ Create New Prediction</a></li>
+                        <li><a href="{{ url_for('my_predictions') }}">📊 My Predictions</a></li>
+                        <li><a href="{{ url_for('about') }}">ℹ️ About Us</a></li>
+                        <li>
+                            <p style="font-size:0%;">.</p>
+                        </li>
+                        <li>
+                            <p style="font-size:0%;">.</p>
+                        </li>
+                        <li><a href="{{ url_for('contact') }}">📞 Contact Support</a></li>
+                        <li><a href="#">📋 Terms of Service</a></li>
+                        <li><a href="#">🔒 Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>📍 Contact Information</h3>
+                    <p>📧 Email:<br> <a href="mailto:{{ support_email }}">{{ support_email }}</a></p>
+                    <p style="font-size:0%;">.</p>
+                    <p>📱 Phone:<br> {{ support_phone }}</p>
+                    <p style="font-size:0%;">.</p>
+                    <p>🏢 Address: <br>Academic Office, VIT Bhopal University,<br>
+                        Bhopal, Madhya Pradesh, India</p>
+                    <p style="font-size:0%;">.</p>
+                </div>
+            </div>
+            <br>
+            <div class="disclaimer-box">
+                <h4>⚠️ Important Medical Disclaimer</h4>
+                <p style="text-align:justify; color: #dfdfdf">This application is for informational and educational
+                    purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or
+                    treatment. Always seek the advice of your physician or other qualified health provider with any
+                    questions you may have regarding a medical condition. Never disregard professional medical advice or
+                    delay in seeking it because of something you have read on this application.</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright-info">
+                    <p style="font-size:1rem;"><br>
+                        &copy; 2023 mProvMeds - Healthcare Improvements Platform. All rights reserved. | Powered by
+                        NAMETAG</p>
+                </div>
+
+                <p style="margin-top: 1rem; color: #d1d5db; font-size: 0.9rem;">
+                    Version {{ver}} | Last Updated: {{updatedOn}} |
+                    <a href="{{ url_for('contact') }}" style="color: #93c5fd;">Report Issues</a> |
+                    <a href="{{ url_for('contact') }}" style="color: #93c5fd;">Suggest Features</a>|
+                    <a href="{{ url_for('view_all_queries') }}" style="color: #93c5fd;">Admin Console</a>
+                </p>
+                <p style="margin-top: 1rem; color: #d1d5db; font-size: 0.9rem;">
+                    <a href="https://www.python.org/" target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Python</a> |
+                    <a href="https://www.google.com/search?q=machine+learning&rlz=1C1VDKB_enIN988IN988&oq=MAchine&gs_lcrp=EgZjaHJvbWUqDwgBEAAYQxixAxiABBiKBTIMCAAQRRg5GLEDGIAEMg8IARAAGEMYsQMYgAQYigUyCggCEAAYsQMYgAQyBwgDEAAYgAQyBwgEEAAYgAQyCggFEAAYsQMYgAQyBggGEEUYPTIGCAcQRRhB0gEIMzU1NmowajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Machine Learning</a> |
+                    <a href="https://flask.palletsprojects.com" target="_blank"
+                        style="color: #93c5fd; font-size: 0.75rem;">
+                        Flask</a> |
+                    <a href="https://www.google.com/search?q=html+css&sca_esv=71a2141a21d8c97d&rlz=1C1VDKB_enIN988IN988&sxsrf=AE3TifMumyHis7wMC95WamCUIAtFR_neXg%3A1756302710342&ei=dg2vaKzfFOrdseMP2722-A4&ved=0ahUKEwis8qu5kauPAxXqbmwGHdueDe8Q4dUDCBA&uact=5&oq=html+css&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGh0bWwgY3NzMgUQABiABDIFEAAYgAQyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMggQABiABBixA0ixL1CHKVjRLnACeAGQAQCYAcUBoAGFBKoBAzAuM7gBA8gBAPgBAZgCBaACsgTCAgcQIxiwAxgnwgIKEAAYsAMY1gQYR8ICChAjGIAEGCcYigXCAg0QABiABBixAxhDGIoFwgIKEAAYgAQYQxiKBcICDhAAGIAEGLEDGIMBGIoFwgILEAAYgAQYsQMYgwGYAwCIBgGQBgqSBwUyLjIuMaAHhxOyBwUwLjIuMbgHmwTCBwUyLTQuMcgHJQ&sclient=gws-wiz-serp"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        HTML5/CSS3</a> |
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                        style="color: #93c5fd; font-size: 0.75rem;">
+                        JavaScript</a> |
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Responsive Design</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

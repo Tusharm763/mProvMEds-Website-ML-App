@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modern-styles.css') }}">
+    <script src="{{ url_for('static', filename='this-script.js') }}"></script>
+    <title>Contact Us - mProvMeds</title>
+</head>
+
+<body><div class="message-mobile" id="mobileMessage" >
+        Regret!!
+        <br>
+        <br>
+
+        Please use our app for mobile phone:
+        <br>
+        <br>
+        Play-Store: URL-not-found
+        <br>
+        <br>
+        Thanks and Regards.
+        {{appname}} Team.
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <nav class="navbar" id="nb">
+        <div class="nav-left">
+            <a href="{{ url_for('index') }}" class="app-name"
+                style="display: flex; justify-content: center; align-items: center;">
+                <img style="border-radius: 50%;margin-right: 8px;"
+                    src="{{ url_for('static', filename='mProvMEds-logo-Icon-circular.png') }}"
+                    alt="mProvMeds Logo" height="40" width="40">
+
+                {{ appname }}
+            </a>
+            <div class="divider-nav" style="border-left: 3px solid #2563eb;"></div>
+
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index_form') }}" class="nav-link">Create Prediction</a></li>
+                <li><a href="{{ url_for('my_predictions') }}" class="nav-link">My Predictions</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+
+        {% if username %}
+        <div class="user-dropdown">
+            <button class="user-button" onclick="toggleDropdown()">
+                <span id="userName">{{ username }}</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="dropdown-item">Signed in as <strong>{{ username }}</strong></div>
+                <div class="dropdown-item" id="userEmail">Email - id: {{ email }}</div>
+                <div class="dropdown-item">
+                    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </nav>
+
+
+    <div class="container main-content fade-in" id="cmc">
+        <div class="form-container">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Contact Us</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                We'd love to hear from you! Send us a message and we'll respond as soon as possible.
+            </p>
+
+            <form action="{{ url_for('contact_submit') }}" method="post" onsubmit="return validateContactForm()">
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your full name..."
+                        value="{{ username or '' }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email address..."
+                        value="{{ email or '' }}" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="contact_type">Type of Inquiry *</label>
+                    <select name="contact_type" id="contact_type" required
+                        style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: var(--border-radius-sm); font-size: 1rem; background: var(--surface);">
+                        <option value="">Select inquiry type...</option>
+                        <option value="contact">General Contact</option>
+                        <option value="suggestion">Feature Suggestion</option>
+                        <option value="report">Report an Issue</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject" id="subject" placeholder="Brief description of your inquiry...">
+                </div>
+
+                <div class="form-group">
+                    <label for="query">Message *</label>
+                    <textarea name="query" id="query" rows="6" required
+                        placeholder="Please provide detailed information about your inquiry..."
+                        style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: var(--border-radius-sm); font-size: 1rem; background: var(--surface); font-family: inherit; resize: vertical; min-height: 120px;"></textarea>
+                </div>
+
+                <div class="form-group" id="priority-group">
+                    <label for="priority">Priority Level</label>
+                    <select name="priority" id="priority"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: var(--border-radius-sm); font-size: 1rem; background: var(--surface);">
+                        <option value="low">Low - General inquiry</option>
+                        <option value="medium">Medium - Affects functionality</option>
+                        <option value="high">High - Critical issue</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="subscribe" value="yes" style="margin-right: 0.5rem;">
+                        Subscribe to updates and newsletters
+                    </label>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="submit" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        📧 Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-container" style="margin-top: 2rem;">
+            <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Other Ways to Reach Us</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">📧 Email</h4>
+                    <p style="color: var(--text-secondary);"> {{ support_email }} </p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">📱 Phone</h4>
+                    <p style="color: var(--text-secondary);">{{ support_phone }}</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🕒 Response Time</h4>
+                    <p style="color: var(--text-secondary);">Within next 5 Working Days.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🏢 Office Hours</h4>
+                    <p style="color: var(--text-secondary);">Mon-Fri: 9AM-6PM IST</p>
+                </div>
+            </div>
+            <br>
+            <hr color="#1d4ed8">
+            <br>
+            <div>
+                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🏢 Address:</h4>
+                <p style="color: var(--text-secondary);">Academic Office, VIT Bhopal University, Bhopal, Madhya Pradesh,
+                    India</p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer class="site-footer" id="sf">
+        <div class="footer-content"><br><br>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>🏥 About mProvMeds</h3>
+                    <p style="text-align:justify;">We are a team of dedicated individuals working to provide valuable
+                        predictions and insights into various diseases based on symptoms input. Our goal is to improve
+                        healthcare outcomes and empower individuals to make informed decisions about their health.</p>
+                    <a href="#" title="LinkedIn"
+                        style="display: inline-flex;align-items: center;justify-content: center;margin-top:0.6rem;letter-spacing:2.5px;">
+                        <img style="margin-right:4px;" src="https://www.svgrepo.com/show/157006/linkedin.svg"
+                            height="22.5" width="22.5">
+                        LinkedIn
+
+                    </a>
+                    <a style="color:transparent;height:rem;">_</a>
+                    <a style="border-left: 3px solid #2563eb;color:transparent;height:2rem;font-size:2rem;">_</a>
+                    <a href="#" title="Github"
+                        style="display: inline-flex;align-items: center;justify-content: center;margin-top:0.6rem;letter-spacing:2.5px;">
+                        <img style="margin-right:4px;" src="https://www.svgrepo.com/show/512317/github-142.svg"
+                            height="22.5" width="22.5">
+                        Github
+
+                    </a>
+                </div>
+
+                <div class="footer-section" style="padding-left:45px;">
+                    <h3>🔗 Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">🏠 Home</a></li>
+                        <li><a href="{{ url_for('index_form') }}">➕ Create New Prediction</a></li>
+                        <li><a href="{{ url_for('my_predictions') }}">📊 My Predictions</a></li>
+                        <li><a href="{{ url_for('about') }}">ℹ️ About Us</a></li>
+                        <li>
+                            <p style="font-size:0%;">.</p>
+                        </li>
+                        <li>
+                            <p style="font-size:0%;">.</p>
+                        </li>
+                        <li><a href="{{ url_for('contact') }}">📞 Contact Support</a></li>
+                        <li><a href="#">📋 Terms of Service</a></li>
+                        <li><a href="#">🔒 Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>📍 Contact Information</h3>
+                    <p>📧 Email:<br> <a href="mailto:{{ support_email }}">{{ support_email }}</a></p>
+                    <p style="font-size:0%;">.</p>
+                    <p>📱 Phone:<br> {{ support_phone }}</p>
+                    <p style="font-size:0%;">.</p>
+                    <p>🏢 Address: <br>Academic Office, VIT Bhopal University,<br>
+                        Bhopal, Madhya Pradesh, India</p>
+                    <p style="font-size:0%;">.</p>
+                </div>
+            </div>
+            <br>
+
+            <div class="disclaimer-box">
+                <h4>⚠️ Important Medical Disclaimer</h4>
+                <p style="text-align:justify; color: #dfdfdf">This application is for informational and educational
+                    purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or
+                    treatment. Always seek the advice of your physician or other qualified health provider with any
+                    questions you may have regarding a medical condition. Never disregard professional medical advice or
+                    delay in seeking it because of something you have read on this application.</p>
+            </div>
+
+
+            <div class="footer-bottom">
+                <div class="copyright-info">
+                    <p style="font-size:1rem;"><br>
+                        &copy; 2023 mProvMeds - Healthcare Improvements Platform. All rights reserved. | Powered by
+                        NAMETAG</p>
+                </div>
+
+                <p style="margin-top: 1rem; color: #d1d5db; font-size: 0.9rem;">
+                    Version {{ver}} | Last Updated: {{updatedOn}} |
+                    <a href="{{ url_for('contact') }}" style="color: #93c5fd;">Report Issues</a> |
+                    <a href="{{ url_for('contact') }}" style="color: #93c5fd;">Suggest Features</a>|
+                    <a href="{{ url_for('view_all_queries') }}" style="color: #93c5fd;">Admin Console</a>
+                </p>
+                <p style="margin-top: 1rem; color: #d1d5db; font-size: 0.9rem;">
+                    <a href="https://www.python.org/" target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Python</a> |
+                    <a href="https://www.google.com/search?q=machine+learning&rlz=1C1VDKB_enIN988IN988&oq=MAchine&gs_lcrp=EgZjaHJvbWUqDwgBEAAYQxixAxiABBiKBTIMCAAQRRg5GLEDGIAEMg8IARAAGEMYsQMYgAQYigUyCggCEAAYsQMYgAQyBwgDEAAYgAQyBwgEEAAYgAQyCggFEAAYsQMYgAQyBggGEEUYPTIGCAcQRRhB0gEIMzU1NmowajSoAgCwAgA&sourceid=chrome&ie=UTF-8"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Machine Learning</a> |
+                    <a href="https://flask.palletsprojects.com" target="_blank"
+                        style="color: #93c5fd; font-size: 0.75rem;">
+                        Flask</a> |
+                    <a href="https://www.google.com/search?q=html+css&sca_esv=71a2141a21d8c97d&rlz=1C1VDKB_enIN988IN988&sxsrf=AE3TifMumyHis7wMC95WamCUIAtFR_neXg%3A1756302710342&ei=dg2vaKzfFOrdseMP2722-A4&ved=0ahUKEwis8qu5kauPAxXqbmwGHdueDe8Q4dUDCBA&uact=5&oq=html+css&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGh0bWwgY3NzMgUQABiABDIFEAAYgAQyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMggQABiABBixA0ixL1CHKVjRLnACeAGQAQCYAcUBoAGFBKoBAzAuM7gBA8gBAPgBAZgCBaACsgTCAgcQIxiwAxgnwgIKEAAYsAMY1gQYR8ICChAjGIAEGCcYigXCAg0QABiABBixAxhDGIoFwgIKEAAYgAQYQxiKBcICDhAAGIAEGLEDGIMBGIoFwgILEAAYgAQYsQMYgwGYAwCIBgGQBgqSBwUyLjIuMaAHhxOyBwUwLjIuMbgHmwTCBwUyLTQuMcgHJQ&sclient=gws-wiz-serp"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        HTML5/CSS3</a> |
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                        style="color: #93c5fd; font-size: 0.75rem;">
+                        JavaScript</a> |
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+                        target="_blank" style="color: #93c5fd; font-size: 0.75rem;">
+                        Responsive Design</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Auto-resize textarea
+        document.getElementById('query').addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    </script>
+</body>
+
+</html>

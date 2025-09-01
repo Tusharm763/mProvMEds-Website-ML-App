@@ -1,0 +1,28 @@
+timestamp,name,email,contact_type,subject,query,priority,subscribe,user_agent,ip_address
+27/08/2025 at 10.54.15 AM,Tushar M,tusharmistry2022@vitbhopal.ac.in,contact,qwerty: abcd,"body is Message, and a message is body",low,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+27/08/2025 at 11.19.15 AM,Tushar Mistry,tusharmistry2022@vitbhopal.ac.in,feedback,qwerty123: abcd,"body is Message, and a message is body",medium,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 09.40.34 PM,Abhijeet,abhi123@gmail.com,suggestion,Reg. Suggestion for Web Page Responsive.,"Hi Developers Team,
+
+I have a Suggestion for Web Responsive for Flask : with CSS media query integgration skills.
+
+kindly update me if you want to make this with implementation.
+email : devwithabhijeet@example.com.
+
+Regards,
+Abhijeet.",low,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 09.52.29 PM,ascas,asasc@ex.com,contact,afvv,sdf,low,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 09.52.32 PM,ascas,asasc@ex.com,contact,afvv,sdf,low,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 10.48.31 PM,aqwerfg,a@gmail.comm,contact,sdfgh,qwerty qwert ghjhgfd,low,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 10.53.30 PM,cdvs,tm@gmaill.comm,feedback,wqwbfv dfbbd,sdsfb  fdb sdfg,medium,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 10.53.33 PM,cdvs,tm@gmaill.comm,feedback,wqwbfv dfbbd,sdsfb  fdb sdfg,medium,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 10.53.38 PM,cdvs,tm@gmaill.comm,feedback,wqwbfv dfbbd,sdsfb  fdb sdfg,medium,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+28/08/2025 at 10.53.43 PM,cdvs,tm@gmaill.comm,feedback,wqwbfv dfbbd,sdsfb  fdb sdfg,medium,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+30/08.2025 at 11.18.01 PM,WERTGH,ERTYV@E.COM,contact,AGB DFBXFB,V G REHGND SDGSDTJ SHDFH,high,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+30/08/2025 at 09:37:37 PM,qwerty,tusharmistry07@gmail.com,contact,Reg. qwedsa,"hi.
+we are testing email.",low,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+30/08/2025 at 09:41:07 PM,First Name,mistrytushar07@gmail.com,contact,reg. test,test test test,high,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+31/08/2025 at 06:23:23 PM,Tushar Mistry,tusharmistry2022@vitbhopal.ac.in,report,Reg. Test Email,"Hii!
+This is a test email for Feedback",low,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+31/08/2025 at 08:02:19 PM,Tushar Mistry,mistrytushar07@gmail.com,contact,sdfgh,sdfgh sdfg,low,yes,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+31/08/2025 at 08:04:35 PM,Tushar Mistry,mistrytushar07@gmail.com,contact,Registration status is showing Fraud.,xcsdvsfb dfbdfbc,low,no,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",127.0.0.1
+01/09/2025 at 03:32:29 PM,Tushar Mistry,tusharmistry2022@vitbhopal.ac.in,report,Reg. Bugs and report,Reg. Bugs and report in mobile UI.,medium,yes,"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36",172.25.191.152

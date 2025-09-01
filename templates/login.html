@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modern-styles.css') }}">
+    <title>Login - Health-Care Improvements</title>
+</head>
+
+<body><div class="message-mobile" id="mobileMessage" >
+        Regret!!
+        <br>
+        <br>
+
+        Please use our app for mobile phone:
+        <br>
+        <br>
+        Play-Store: URL-not-found
+        <br>
+        <br>
+        Thanks and Regards.
+        {{appname}} Team.
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages"  style="top: 1rem;">
+        {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="auth-container fade-in"  id="cmc">
+        <h2>🏥 Welcome Back</h2>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 2rem;">Sign in to your account to continue</p>
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username"
+                    autocomplete="username" value="{{ request.form.username if request.form.username else '' }}">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password"
+                    autocomplete="current-password">
+                <div style="margin-top: 0.5rem;">
+                    <input type="checkbox" id="showPassword" onchange="togglePassword()">
+                    <label for="showPassword" style="display: inline; margin-left: 0.5rem; font-size: 0.9rem;">Show
+                        password</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; margin-bottom: 1rem;" id="loginBtn">
+                🔑 Sign In
+            </button>
+        </form>
+
+        <div style="text-align: center;">
+            <p style="color: #6b7280;">Don't have an account?</p>
+            <a href="{{ url_for('register') }}" class="btn btn-outline"
+                style="margin-top: 0.5rem; text-decoration: none;">
+                ➕ Create Account
+            </a>
+        </div>
+
+        {% if config.DEBUG %}
+        <div style="margin-top: 2rem; padding: 1rem; background: #f3f4f6; border-radius: 0.5rem; font-size: 0.8rem;">
+            <strong>Debug Info:</strong><br>
+            <span style="color: #6b7280;">Test Login: firstLAst Name / qwerty123</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Auto-hide flash messages
+        setTimeout(function () {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(function (message) {
+                message.style.opacity = '0';
+                setTimeout(function () {
+                    message.remove();
+                }, 300);
+            });
+        }, 5000);
+
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const checkbox = document.getElementById('showPassword');
+
+            if (checkbox.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+
+        // Form submission with loading state
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const submitBtn = document.getElementById('loginBtn');
+            submitBtn.innerHTML = '⏳ Signing in...';
+            submitBtn.disabled = true;
+
+            // Re-enable after 5 seconds if there's an error
+            setTimeout(() => {
+                submitBtn.innerHTML = '🔑 Sign In';
+                submitBtn.disabled = false;
+            }, 5000);
+        });
+
+        // Focus on username field when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('username').focus();
+        });
+    </script>
+</body>
+
+</html>

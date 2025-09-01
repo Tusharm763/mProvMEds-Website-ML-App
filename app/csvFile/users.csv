@@ -1,0 +1,4 @@
+user_id,username,email,password_hash,created_at
+a1b2c3d4-e5f6-7890-abcd-ef1234567890,firstLAst Name,firstname.lastname@email.com,pbkdf2:sha256:260000$xyz123$9f4a8b2c1d3e5f6789abcdef,2024-08-13 15:30:25
+5f14a7d2-a3f4-4857-bd5b-828afdb3531e,tusharm,qwerty@email.com,scrypt:32768:8:1$6fiH6OHTI7tEPSdI$17c0aa0cb4a7e188f1bda7f0fcc8bd99553027ee52a1a0392559ec21affd7c46d0e3ce5411eeb47fe7a18fced794bf167e3ea9186b325cb12ba91cc84ccfcdb7,2025-08-13 19:47:37
+beb6a63e-5184-4fba-819e-05c0cde6e085,Tushar Mistry,mistrytushar07@gmail.com,scrypt:32768:8:1$kbMTP3Vf0h4N2FOn$510afc4099db3e6faaf6eac2ee73034eb182e7e36eb3f2b22c9e66e4a6908de5db137a2a57f89ae54c8e8274502cf4e29f86203bc9243ac34dfe505229adb2bd,2025-08-26 23:50:49
