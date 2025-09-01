@@ -28,7 +28,7 @@ Defined Routes:
 flask_app = Flask(__name__, static_folder='static')
 flask_app.secret_key = 'your-secret-key-change-this-in-production'
 flask_app.config['PERMANENT_SESSION_LIFETIME'] = 86400
-flask_app.config['DEBUG'] = False
+flask_app.config['DEBUG'] = True
 
 
 @flask_app.route('/')
@@ -667,5 +667,5 @@ def delete_query():
 app.handler.csv_main.init_csv_files()
 if __name__ == '__main__':
     init_csv_files()
-    flask_app.run(host='0.0.0.0',debug = False)
+    flask_app.run(host='0.0.0.0',debug = True)
 

@@ -37,17 +37,16 @@
     {% endif %}
     {% endwith %}
 
-    <nav class="navbar" id="nb">
+    <nav class="navbar">
         <div class="nav-left">
             <a href="{{ url_for('index') }}" class="app-name"
                 style="display: flex; justify-content: center; align-items: center;">
                 <img style="border-radius: 50%;margin-right: 8px;"
                     src="{{ url_for('static', filename='mProvMEds-logo-Icon-circular.png') }}"
-                    alt="Flowers in Chania" height="40" width="40">
-
-                {{ appname }} </a>
+                    alt="mProvMeds Logo" height="40" width="40">
+                {{ appname }}
+            </a>
             <div class="divider-nav" style="border-left: 3px solid #2563eb;"></div>
-            </div>
 
             <ul class="nav-links">
                 <li><a href="{{ url_for('index_form') }}" class="nav-link">Create Prediction</a></li>
@@ -64,7 +63,7 @@
             </button>
             <div class="dropdown-menu" id="dropdownMenu">
                 <div class="dropdown-item">Signed in as <strong>{{ username }}</strong></div>
-                <div class="dropdown-item" id="userEmail">Email - id: {{ email }}</div>
+                <div class="dropdown-item" id="userEmail">Email: {{ email }}</div>
                 <div class="dropdown-item">
                     <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
                 </div>
