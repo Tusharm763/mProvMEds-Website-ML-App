@@ -1,6 +1,16 @@
+"""
+LOCAL DEBUG RUN :
+use dotenv for python local debugging (variables in # are non deployed
+
+DEPLOY
+using os.environ('...') for Render Deployed App.
+
+Refer : https://render.com/docs/configure-environment-variables
+"""
+
 import os
-from dotenv import load_dotenv
-load_dotenv('.env')
+# from dotenv import load_dotenv
+# load_dotenv('.env')
 
 DISEASE_TRAIN_DATA='app/csvFile/DISEASE_TRAIN.csv'
 DISEASE_TEST_DATA='app/csvFile/DISEASE_TEST.csv'
